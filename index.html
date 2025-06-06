@@ -1,49 +1,64 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bike, Bite & Brew</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
-<div class="posts">
-  {% for post in paginator.posts %}
-    <article class="post">
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        <h1>{{ post.title }}</h1>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fdf6f0; /* 크림색 배경 */
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
 
-        <div>
-          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-        </div>
-      </a>
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+    h1 {
+      font-size: 2.8rem;
+      margin: 0.5em 0;
+      color: #222;
+      line-height: 1.2;
+    }
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+    p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0.5em 1.5em;
+      line-height: 1.8;
+      color: #555;
+    }
 
-  <!-- pagination -->
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-    {% else %}
-      <span>&laquo; Prev</span>
-    {% endif %}
+    footer {
+      position: absolute;
+      bottom: 1em;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
 
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="webjeda">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-      {% else %}
-        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
+  <h1>🚴‍♂️🍔☕🍺<br>Bike, Bite & Brew</h1>
+  
+  <p>
+    라이딩, 맛 & 브루잉 라이프<br>
+    자전거 타고 바람을 가르고,<br>
+    좋은 음식을 찾고,<br>
+    따뜻한 커피와 시원한 맥주를 즐깁니다.<br>
+    여유로운 순간들을 기록합니다.
+  </p>
 
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-    {% else %}
-      <span>Next &raquo;</span>
-    {% endif %}
-  </div>
-  {% endif %}
-</div>
+  <footer>
+    © 2025 Bike, Bite & Brew
+  </footer>
+
+</body>
+</html>
